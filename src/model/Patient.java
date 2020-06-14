@@ -10,15 +10,15 @@ public class Patient {
 	public int endTime;
 	public Patient(){}
 
-	public Patient(int patientId, int patientAge, String patientName, String diseaseCategory) {
+	public Patient(int id, int age, String name, String diseaseCategory) {
 		super();
-		this.id = patientId;
-		this.age = patientAge;
-		this.name = patientName;
+		this.id = id;
+		this.age = age;
+		this.name = name;
 		this.diseaseCategory = diseaseCategory;
 	}
 
-	// getter method for patient
+	// getter methods for patient class
 	public int getPatientId() {
 		return id;
 	}

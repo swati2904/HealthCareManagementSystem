@@ -19,6 +19,7 @@ public class Signup {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		// for name
+        System.out.println("**********SIGN UP DETAILS FOR PATIENT*********");
 		System.out.println("Please enter your name");
 		String name = br.readLine();
 
@@ -37,9 +38,11 @@ public class Signup {
 		// checking enter details are valid?
 
 		if (validEmail(email) && validPassword(password, confirmPassword)) {
-			System.out.println("You Have Successfully Registerd!!! ");
-			System.out.println("Please go to the login process");
-
+			System.out.println("Successfully Registerd!!! ");
+			System.out.println(" ");
+			System.out.println("******************************");
+			System.out.println("-----LOGIN PROCESS-----");
+			System.out.println("******************************");
 			SignupAndLogin s = new SignupAndLogin(email, password);
 			s.check();
 		} else {

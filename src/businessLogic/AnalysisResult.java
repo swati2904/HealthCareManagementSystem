@@ -42,10 +42,10 @@ public class AnalysisResult {
 	public ArrayList<String> getAnalysisResult() {
 		analysisResult.add("Analysis Result");
 
-//		// display the type of the allergy.
+		// display the type of the allergy.
 		analysisResult.add("Patient Age: "+ age);
 		
-//		Disease type-----------------
+        //-----------------------------------------Disease type------------------------------------------
 		analysisResult.add("******************PATIENT DISEASE INFORMATION******************");
 		analysisResult.add("Disease Name: " + allergy_type);
 		analysisResult.add("Allergy Zone(Stage ):" + allergy_start);
