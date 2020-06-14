@@ -1,15 +1,12 @@
 package model;
 
 public class PatientQueries {
-	private String[] descriptionQuery = { "How old you are?" };
+	private String[] descriptionQuery = { "What is your name","How old you are?" };
 	// Allergies (food, tobacco, insect)
-	private String[] allergyType = {
-			"Which problem you are facing(throat,face and lips swelled /congestion, itchiness, watery eyes/ swelling area, hoarse voice, chest pain)" };
-	private String[] anyPastRecordQuery = { "Is there any past medical history?(yes/no)",
-			"is this happen before?(yes/no)" };
+	private String[] allergyType = {"Which problem you are facing(dizziness/wheezing/edema)" };
+	private String[] anyPastRecordQuery = { "Is there any past medical history?(yes/no)", "is this happen before?(yes/no)" };
 	private String[] whenStartQuery = { "when it was started?(week/month)", "Did you take any precautions?(yes/no)" }; 
-	private String[] lifeStyleQuery = { "Do you take your proper meal?", "Do You Smoke Cigarettes?",
-			"Do You Drink Alcohol? " };
+	private String[] lifeStyleQuery = { "Do you take your proper meal?", "Do You Smoke Cigarettes?","Do You Drink Alcohol? " };
 
 	public String[] getDescriptionQuery() {
 		return this.descriptionQuery;

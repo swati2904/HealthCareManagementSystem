@@ -10,14 +10,14 @@ public class AllergyTypes {
 	}
 
 	public String getAllergyTypes() {
-		if (allergyType.get(0).equals("throat,face and lips swelled"))
-			return "You are Food Allergic.";
-		else if (allergyType.get(1).equals("congestion, itchiness, watery eyes"))
-			return "You are Tobacco Allergic.";
-		else if (allergyType.get(2).equals("swelling area, hoarse voice, chest pain"))
-			return "You are insect allergic";
+		if (allergyType.get(0).contentEquals("dizziness"))
+			return "Food Allergic";
+		else if (allergyType.get(0).contentEquals("wheezing"))
+			return "Tobacco Allergic";
+		else if (allergyType.get(0).contentEquals("edema"))
+			return "Insect Allergic";
 		else
-			return "You have normal allergy.";
+			return "Normal Allergy";
 	}
 
 }

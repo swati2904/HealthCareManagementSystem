@@ -13,7 +13,7 @@ public class LifeStyle {
 		if (lifeStyle.get(0).contentEquals("yes")) {
 			return "yes";
 		} else
-			return "No";
+			return "no";
 
 	}
 
@@ -21,13 +21,13 @@ public class LifeStyle {
 		if (lifeStyle.get(1).contentEquals("yes")) {
 			return "yes";
 		} else
-			return "No";
+			return "no";
 	}
 
 	public String getAlcohol() {
 		if (lifeStyle.get(2).contentEquals("yes")) {
 			return "yes";
 		} else
-			return "No";
+			return "no";
 	}
 }

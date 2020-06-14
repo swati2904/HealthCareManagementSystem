@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
-//import com.itextpdf.text.Document;
-//import com.itextpdf.text.DocumentException;
-//import com.itextpdf.text.Paragraph;
-//import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import businessLogic.AnalysisResult;
 import businessLogic.Precautions;
@@ -24,32 +24,33 @@ import services.Analysis;
 
 public class Main {
 //-------------------------	for E-test report-----------------------------------
-//	public static void pdfReport(AnalysisResult result,Precautions precautions,String name) {
-//		Document document = new Document();
-//	      try
-//	      {
-//	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("PatientDiseaseResult.pdf"));
-//	         document.open();
-//	         document.add(new Paragraph("HEALTH CARE MANAGEMENT ANALYSIS REPORT : "+name));
-//	         for (String str : result.getAnalysisResult()) {
-//	        	 document.add(new Paragraph("\n"+str));
-//	         }
-//	         document.add(new Paragraph("__________________________________________________________________________\n"));
-//	   
-//	         for (String str : precautions.providePrecautions()) {
-//	        	 document.add(new Paragraph("\n"+str));
-//	         }
-//	         document.add(new Paragraph("Thanks for visiting here"));
-//	         document.close();
-//	         writer.close();
-//	      } catch (DocumentException e)
-//	      {
-//	         e.printStackTrace();
-//	      } catch (FileNotFoundException e)
-//	      {
-//	         e.printStackTrace();
-//	}
-//	}
+	public static void pdfReport(AnalysisResult result,Precautions precautions,String name) {
+			Document document = new Document();
+	      try
+	      {
+	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(name+".pdf"));
+	         document.open();
+	         System.out.print("File is prepared with your name!!");
+	         document.add(new Paragraph("HEALTH CARE MANAGEMENT ANALYSIS REPORT : "+name));
+	         for (String str : result.getAnalysisResult()) {
+	        	 document.add(new Paragraph("\n"+str));
+	         }
+	         document.add(new Paragraph("__________________________________________________________________________\n"));
+	   
+	         for (String str : precautions.providePrecautions()) {
+	        	 document.add(new Paragraph("\n"+str));
+	         }
+	         document.add(new Paragraph("Thanks for visiting here"));
+	         document.close();
+	         writer.close();
+	      } catch (DocumentException e)
+	      {
+	         e.printStackTrace();
+	      } catch (FileNotFoundException e)
+	      {
+	         e.printStackTrace();
+	      }
+	}
 	static Doctor[] doctors = new Doctor[2];
 	
 	static String[] majorSpecialization = { "Allergists", "Cardiologists", "Colon surgeons",
@@ -187,18 +188,18 @@ public class Main {
 		Patient p = new Patient();
 		
 		//----------------------------------------PATEINT SIGN UP AND LOGIN OPTION--------------------------------------------
-		Signup.userDetails();
-		System.out.println(" ");
+//		Signup.userDetails();
+//		System.out.println(" ");
 		
 		//--------------------------------------------PATIENT GENERAL INFORMATION---------------------------------------------
 		Scanner patientDetails = new Scanner(System.in);
 		
-		System.out.println("Enter your Name");
-		String patientName = patientDetails.nextLine();
-		
-		System.out.println("Enter your age");
-		int patientAge = patientDetails.nextInt();
-		
+//		System.out.println("Enter your Name");
+//		String patientName = patientDetails.nextLine();
+//		
+//		System.out.println("Enter your age");
+//		int patientAge = patientDetails.nextInt();
+//		
 		//-----------------------------------PATEINT WANT TO TAKE APPOINTEMENT OR E_TEST---------------------------------------
 		Scanner pReply = new Scanner(System.in);
 		String patientAns = "";
@@ -234,13 +235,13 @@ public class Main {
 		System.out.println("Want to test your disease? (REPLY 'YES/NO')");
 		patientReply = sc.next();
 		sc.nextLine();
-		if (patientReply.equals("yes")) {
+		if (patientReply.equals("YES")||patientReply.equals("y")|| patientReply.equals("yes")) {
 			//------------------ asking for user age.-----------------------------------------
 			Analysis analyse = new Analysis(descriptionQuery);
 			System.out.println("***** GENERAL QUERY *****");
 			for (int i = 0; i < descriptionQuery.length; i++) {
 				System.out.println("Query: " + analyse.getQuery(i));
-				reply.setDescriptionAnswer(sc.nextLine());
+				reply.setDescriptionAnswer(sc.next());
 			}
 			String name = reply.getDescriptionAnswer().get(0);
 
@@ -275,13 +276,14 @@ public class Main {
 			//----------------------------- analysis report---------------------------------------
 			AnalysisResult result = new AnalysisResult(reply);
 			// display result
-			System.out.println(result.getAnalysisResult());
+			//System.out.println(result.getAnalysisResult());
 
 			//-------------------------- Time for suggestions------------------------------------
 			Precautions precaution = new Precautions(reply);
-			
+
 			//give pdf format to the user
-//			pdfReport(result,precaution,name);
+			
+			pdfReport(result,precaution,name);
 		}
 		System.out.println("Thank you! Visit again!");
 

@@ -8,8 +8,8 @@ import services.WhenStart;
 import services.LifeStyle;
 
 public class AnalysisResult {
-	int age, allergy_start;
-	String medical_history, meal, cigarette, alcohol, precaution, having_before, allergy_type;
+	int age;
+	String  allergy_start, medical_history, meal, cigarette, alcohol, precaution, having_before, allergy_type;
 	private ArrayList<String> analysisResult = new ArrayList<String>();
 
 	public AnalysisResult(PatientReplies reply) {
@@ -30,7 +30,7 @@ public class AnalysisResult {
 
 
 		WhenStart ws = new WhenStart(reply.getWhenStartReply());
-		this.allergy_start = Integer.parseInt(ws.getWhenStart());
+		this.allergy_start = ws.getWhenStart();
 		this.precaution = ws.getPrecaution();
 
 		LifeStyle ls = new LifeStyle(reply.getLifeStyleReply());
@@ -42,9 +42,14 @@ public class AnalysisResult {
 	public ArrayList<String> getAnalysisResult() {
 		analysisResult.add("Analysis Result");
 
-		// display the type of the allergy.
+//		// display the type of the allergy.
 		analysisResult.add("Patient Age: "+ age);
-		analysisResult.add("Type of the Disease: " + allergy_type);
+		
+//		Disease type-----------------
+		analysisResult.add("******************PATIENT DISEASE INFORMATION******************");
+		analysisResult.add("Disease Name: " + allergy_type);
+		analysisResult.add("Allergy Zone(Stage ):" + allergy_start);
+		
 		
 
 		return analysisResult;
